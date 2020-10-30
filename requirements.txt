@@ -6,3 +6,4 @@ pydantic==1.7.1
 starlette==0.13.6
 uvicorn==0.12.2
 uvloop==0.14.0
+httptools==0.1.1
