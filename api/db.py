@@ -3,7 +3,7 @@ from sqlalchemy import (Column, Integer, MetaData, String, Table,
 
 from databases import Database
 
-DATABASE_URL = 'postgres://vwdyhgumygnsxk:fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801@ec2-54-166-114-48.compute-1.amazonaws.com:5432/da5v13renqim89'
+DATABASE_URL = 'postgres://emvhsuwtpkppmp:697138f9b8c13970147e808aa752912ea41d9f8105252f8d346c52008a3281c7@ec2-46-137-124-19.eu-west-1.compute.amazonaws.com:5432/dc6cha0mimkbrs'
 
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()
