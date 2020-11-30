@@ -1,1 +1,1 @@
-web: gunicorn froggerFX_API
+web: gunicorn froggerFX_API:froggerFX
