@@ -85,18 +85,19 @@ WSGI_APPLICATION = 'froggerFX_API.wsgi.application'
 
 DATABASES = {
     # os.environ.get()
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
     #'default': {
-    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': ‘<db_name>’,
-    #    'USER': '<db_username>',
-    #    'PASSWORD': '<password>',
-    #    'HOST': '<db_hostname_or_ip>',
-    #    'PORT': '<db_port>',
-    #}
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+   # }
+    'default': {
+        #postgres://vwdyhgumygnsxk:fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801@ec2-54-166-114-48.compute-1.amazonaws.com:5432/da5v13renqim89
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'da5v13renqim89',
+        'USER': 'vwdyhgumygnsxk',
+        'PASSWORD': 'fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801',
+        'HOST': 'ec2-54-166-114-48.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
