@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import django_heroku
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@07)9-5tfepzu@w99+c11o*l*4t+p(_4+bdz%@nf1!y!d6xqeq' #os.environ.get('SECRET_KEY')
+SECRET_KEY =  os.environ.get('SECRET_KEY', 'no secret in environment')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,23 +83,28 @@ WSGI_APPLICATION = 'froggerFX_API.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
+    
+}
+#db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+#DATABASES = {
     # os.environ.get()
     #'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': BASE_DIR / 'db.sqlite3',
    # }
-    'default': {
+  #  'default': {
+   #     os.environ.get()
         #postgres://vwdyhgumygnsxk:fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801@ec2-54-166-114-48.compute-1.amazonaws.com:5432/da5v13renqim89
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'da5v13renqim89',
-        'USER': 'vwdyhgumygnsxk',
-        'PASSWORD': 'fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801',
-        'HOST': 'ec2-54-166-114-48.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'da5v13renqim89',
+        #'USER': 'vwdyhgumygnsxk',
+        #'PASSWORD': 'fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801',
+        #'HOST': 'ec2-54-166-114-48.compute-1.amazonaws.com',
+        #'PORT': '5432',
+ #   }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
