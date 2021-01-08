@@ -9,7 +9,7 @@ class PlayerSerializer(serializers.ModelSerializer):
     model = Player
     fields = '__all__'
   
-  def update(self, instance, validated_data):
+  """ def update(self, instance, validated_data):
     user_data = validated_data.pop('user')
     username = self.data['user']['username']
     user = User.objects.get(username=username)
@@ -17,7 +17,7 @@ class PlayerSerializer(serializers.ModelSerializer):
     if user_serializer.is_valid():
         user_serializer.update(user, user_data)
     instance.save()
-    return instance
+    return instance """
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
