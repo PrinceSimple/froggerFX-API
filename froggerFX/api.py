@@ -48,13 +48,15 @@ class LoginAPI(generics.GenericAPIView):
     })
 
 # Get User API
-class UserAPI(generics.GenericAPIView):
-  queryset = User.objects.all()
+class UserAPI(generics.RetrieveAPIView):
+  #queryset = User.objects.all()
   permission_classes = [
     permissions.IsAuthenticated,
   ]
-  serializer_class = UserSerializer(queryset, many=True)
+  serializer_class = UserSerializer
   
+  def get_object(self):
+    return self.request.user
   """ def list(self, request):
     queryset = User.objects.all()
     serializer = UserSerializer(queryset, many=True)
