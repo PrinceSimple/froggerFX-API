@@ -1,6 +1,6 @@
 from froggerFX.models import Player
 from django.contrib.auth.models import User
-from rest_framework import viewsets, permissions, generics
+from rest_framework import viewsets, permissions, generics, mixins
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, PlayerSerializer
