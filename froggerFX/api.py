@@ -48,16 +48,28 @@ class LoginAPI(generics.GenericAPIView):
     })
 
 # Get User API
-class UserAPI(generics.RetrieveAPIView):
-  #queryset = User.objects.all()
+class UserAPI(mixins.RetrieveModelMixin,
+              mixins.UpdateModelMixin,
+              mixins.DestroyModelMixin,
+              generics.GenericAPIView):
+  queryset = User.objects.all()
   permission_classes = [
     permissions.IsAuthenticated,
   ]
   serializer_class = UserSerializer
   
+  def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+  def put(self, request, *args, **kwargs):
+      return self.update(request, *args, **kwargs)
+
+  def delete(self, request, *args, **kwargs):
+      return self.destroy(request, *args, **kwargs)
+  """
   def get_object(self):
     return self.request.user
-  """ def list(self, request):
+   def list(self, request):
     queryset = User.objects.all()
     serializer = UserSerializer(queryset, many=True)
     return Response(serializer.data) """
