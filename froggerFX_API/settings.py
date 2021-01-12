@@ -85,22 +85,7 @@ WSGI_APPLICATION = 'froggerFX_API.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-#DATABASES = {
-  #  'default': {
-   #     'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': BASE_DIR / 'db.sqlite3',
-    #}
- #   'default': {
-        #os.environ.get()
-        #postgres://vwdyhgumygnsxk:fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801@ec2-54-166-114-48.compute-1.amazonaws.com:5432/da5v13renqim89
-  #      'ENGINE': 'django.db.backends.postgresql_psycopg2',
-   #     'NAME': 'da5v13renqim89',
-    #    'USER': 'vwdyhgumygnsxk',
-     #   'PASSWORD': 'fef79760d291bbd747340e22add96213cbb7481ae16405846d7ede6245358801',
-      #  'HOST': 'ec2-54-166-114-48.compute-1.amazonaws.com',
-       # 'PORT': '5432',
- #   }
-#}
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
