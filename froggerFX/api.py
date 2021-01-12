@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions, generics, mixins
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, PlayerSerializer
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, PlayerSerializer, UpdatePlayerSerializer
 
 #Viewset
 """ class PlayerViewSet(viewsets.ModelViewSet):
@@ -19,6 +19,17 @@ class UserViewSet(viewsets.ModelViewSet):
     permissions.AllowAny
   ]
   serializer_class = UserSerializer(queryset, many=True)
+
+class PlayerUpdateAPI(generics.UpdateAPIView):
+    serializer_class = UpdatePlayerSerializer
+
+    def put(self, request, *args, **kwargs):
+      return self.update(request, *args, **kwargs)
+
+    def get_object(self):
+      queryset = Player.objects.filter(user=self.request.user)
+      obj = queryset[0]
+      return obj
 
 # Register API
 class RegisterAPI(generics.GenericAPIView):
@@ -66,13 +77,14 @@ class UserAPI(mixins.RetrieveModelMixin,
 
   def delete(self, request, *args, **kwargs):
       return self.destroy(request, *args, **kwargs)
-  """
+  
   def get_object(self):
     return self.request.user
-   def list(self, request):
+  
+  def list(self, request):
     queryset = User.objects.all()
     serializer = UserSerializer(queryset, many=True)
-    return Response(serializer.data) """
+    return Response(serializer.data)
 
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()

@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    highscore = models.BigIntegerField(blank=True, null=True)
+    highscore = models.BigIntegerField(default=0)
 
 @receiver(post_save, sender=User)
 def create_user_player(sender, instance, created, **kwargs):

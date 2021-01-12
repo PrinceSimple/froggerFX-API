@@ -26,6 +26,21 @@ class UserSerializer(serializers.ModelSerializer):
     model = User
     fields = ('id', 'username', 'player')
 
+  """ def update(self, instance, validated_data):
+    user_data = validated_data.pop('user')
+    username = self.data['user']['username']
+    user = User.objects.get(username=username)
+    user_serializer = UserSerializer(data=user_data)
+    if user_serializer.is_valid():
+        user_serializer.update(user, user_data)
+    instance.save()
+    return instance """
+
+class UpdatePlayerSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Player
+    fields = ['highscore']
+
 # Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
   class Meta:
